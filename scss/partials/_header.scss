@@ -1,0 +1,32 @@
+/* header */
+.descount{
+    background-color: black;
+    color:$color-text1 ;
+    text-align: center;
+    
+     }
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $secondary-color; 
+   
+
+}
+
+
+.cardSearch {
+    display: flex;
+    
+    justify-content: flex-end;
+}
+
+/* nav */
+.barraNav{
+padding-left: 35%;
+background-color: black;
+
+ }
+

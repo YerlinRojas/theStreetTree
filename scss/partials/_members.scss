@@ -1,0 +1,8 @@
+
+.containerMembers{
+    @include flex (column,center, center );
+    padding-top:20px ;
+    gap: 15px;
+    height: 400px;
+}
+

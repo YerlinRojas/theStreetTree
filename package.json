@@ -1,0 +1,23 @@
+{
+  "name": "javas-tst2",
+  "version": "1.0.0",
+  "description": "e-commerce TST",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/origin.scss assets/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "keywords": [
+    "the",
+    "street",
+    "tree"
+  ],
+  "author": "Yerlin ROJAS",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^8.0.0",
+    "nodemo": "^1.0.0",
+    "nodemon": "^2.0.20"
+  }
+}

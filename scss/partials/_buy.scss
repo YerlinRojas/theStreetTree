@@ -1,0 +1,70 @@
+.gridVenta{
+    display: grid;
+    grid-template-columns: 60% 40%;
+
+}
+
+.imgBuy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.carruselButton{
+    
+    background-color: rgb(243, 243, 243);
+    border-radius: 25px;
+    height: 15%;
+    margin-top: 40%;
+    
+}
+
+.gridButton{
+    display: flex;
+    gap: 15px;
+    
+}
+
+.talleButton{
+    background-color: rgb(243, 243, 243) ;
+    border-radius: 30px;
+    border: none;
+}
+.talleButtonDisable{
+    border-radius: 30px;
+    border-style: dashed;
+}
+
+.textoBuy{
+    font-size: $font-m;
+    color: black;
+}
+
+
+.textoBuyTitulos{
+    font-size: $font-l;
+    color: black;
+}
+
+.colorButton button:nth-child(1){
+background-color: black;
+border: none;
+}
+.colorButton button:nth-child(2){
+    background-color: rgb(212, 36, 36);
+    border: none;    
+}
+
+    .colorButton button:nth-child(3){
+        background-color: rgb(243, 247, 34);
+        border: none;   
+    }
+
+
+.gridEspecifit{
+display: flex;
+flex-direction: column;
+gap: 15px;
+
+}
