@@ -112,7 +112,7 @@ console.log(impoteTotal)
 /* *********************************ENTREGA 2********************************* */
 
 /* constructor- especificaciones del producto */
-class ropa 
+/* class ropa 
 { constructor(tipo, marca, material, genero, temporada)
     {
     this.tipo = tipo
@@ -122,9 +122,9 @@ class ropa
     this.temporada = temporada
 }
 }
-
+ */
 /* Se crean los diferentes modelos */
-const modelo01 = new ropa(
+/* const modelo01 = new ropa(
     "campera",
     "zara",
     "cuero",
@@ -155,57 +155,57 @@ const modelo04 = new ropa(
     "hombre",
     "verano",
 )
-
+ */
 
 /* stock en tienda */
-const stock = [
+/* const stock = [
     {modelo: "modelo01" , precio: 1500},
     {modelo: "modelo02" , precio: 3000},
     {modelo: "modelo03" , precio: 2500},
     {modelo: "modelo04" , precio: 200},
 ];
 console.log(stock)
-
+ */
 
 /* carrito de compras vacio*/
- const carrito= []
-
+ /* const carrito= []
+ */
 
 /* filter - busca en stock*/
-const search = stock.filter((prod)=> prod.modelo.includes("modelo01"))
+/* const search = stock.filter((prod)=> prod.modelo.includes("modelo01"))
 console.log(search) 
-
+ */
 
 /* metodo push- agrega al array - carrito */
-carrito.push(
+/* carrito.push(
     {modelo: "modelo02" , precio: 3000},
     {modelo: "modelo03" , precio: 2500},
     {modelo: "modelo04" , precio: 200},
 
 )
-
+ */
 
 /* forEach- elementos dentro del carrito*/
- carrito.forEach((productos) => {
+/*  carrito.forEach((productos) => {
     console.log(productos);
 }
-)
+) */
 
 /* funcion para iva */
-function precioIva (precio) {
+/* function precioIva (precio) {
     let result = precio * 1.21
     return result
     }
 
-
+ */
 /* forEach - precio mas iva */
-carrito.forEach(prod => prod.precio = precioIva(prod.precio))
+/* carrito.forEach(prod => prod.precio = precioIva(prod.precio))
 console.log(carrito)
 
-
+ */
 
 /* map- hacer un descuento y mostrar un nuevo array*/
-const precioDesc = carrito.map((prod1) => {
+/* const precioDesc = carrito.map((prod1) => {
     
     return{
         nombre: prod1.modelo,
@@ -215,16 +215,111 @@ const precioDesc = carrito.map((prod1) => {
 
 }
 )
-
-console.log(precioDesc)
+console.log(precioDesc)*/
 
 /* reduce- hacer una sumatoria total de los productos */
-const importeTotal = precioDesc.reduce ((acumulador, precioDesc) => acumulador+ precioDesc.precio, 0);
-console.log(importeTotal)
-
-
-/* splice - para eliminar elementos dentro del array- uno o varios-  */
+/* const importeTotal = precioDesc.reduce ((acumulador, precioDesc) => acumulador+ precioDesc.precio, 0);
+console.log(importeTotal) */
 
 
 
+/********TERCERA ENTREGA****************/
 
+const productos = [
+
+    {
+        id: "card1",
+        titulo: "campera amarilla",
+        imagen: "./assets/images/card1_amarillo.png",
+        categoria:{
+            nombre: "kids",
+            id: "kids",
+        },
+        precio: 1000,
+
+    },
+
+    {
+        id: "card2",
+        titulo: "botas hombre",
+        imagen: "./assets/images/card2_botashombre.png",
+        categoria:{
+            nombre: "hombre",
+            id: "hombre",
+        },
+        precio: 1500,
+
+    },
+
+    {
+        id: "card3",
+        titulo: "conjunto deportivo",
+        imagen: "./assets/images/card3_Cdeporhombre.png",
+        categoria:{
+            nombre: "hombre",
+            id: "hombre",
+        },
+        precio: 2000,
+
+    },
+
+    {
+        id: "card4",
+        titulo: "conjuto deportivo",
+        imagen: "./assets/images/card4_mujerdeportivoconunto.png",
+        categoria:{
+            nombre: "mujer",
+            id: "mujer",
+        },
+        precio: 2000,
+
+    },
+
+
+
+]
+
+const contenedorProductos = document.querySelector("#contenedorProductos")
+const botonesCategorias = document.querySelectorAll(".boton-categoria"); 
+
+function cargarProductos (productosElegidos) {
+
+    contenedorProductos.innerHTML="";
+
+    productosElegidos.forEach(producto => {
+        const div = document.createElement("div");
+         div.classList.add("producto");
+         div.innerHTML = 
+         `
+         <div class="card-bodyy">
+         <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+         <div class="producto-detalle">
+           <h5 class="producto-titulo">${producto.titulo}</h5>
+           <p class="producto-precio">${producto.precio}</p>
+           <button class="producto-agregar" id="${producto.id}">Agregar</button>
+         </div>
+         </div>
+         `
+         contenedorProductos.append(div);
+ 
+    }
+
+    )
+
+}
+
+cargarProductos(productos)
+
+/* botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) =>{
+
+        botonesCategorias.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+
+        const productoBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id)
+        cargarProductos(productoBoton);
+    }
+    )
+}
+    )
+ */
