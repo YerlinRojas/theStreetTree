@@ -282,6 +282,10 @@ const productos = [
 const contenedorProductos = document.querySelector("#contenedorProductos")
 const botonesCategorias = document.querySelectorAll(".boton-categoria"); 
 
+
+
+/* funcion para productos detalle */
+
 function cargarProductos (productosElegidos) {
 
     contenedorProductos.innerHTML="";
@@ -310,16 +314,40 @@ function cargarProductos (productosElegidos) {
 
 cargarProductos(productos)
 
-/* botonesCategorias.forEach(boton => {
+
+/* funcion filtrar */
+botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) =>{
 
         botonesCategorias.forEach(boton => boton.classList.remove("active"));
         e.currentTarget.classList.add("active");
-
+        
         const productoBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id)
         cargarProductos(productoBoton);
+        localStorage.setItem('productoBoton', JSON.stringify(productoBoton))
+        window.location.href = ' ./pages/mujeres.html '
+
     }
     )
 }
     )
+
+    
+
+
+/* const botonMujer = document.querySelector(".boton-mujer");
+
+
+botonMujer.addEventListener("click", (e) => {
+        window.location.href = ' ./pages/mujeres.html '
+}
+)
+
+const botonHombre = document.querySelector(".boton-hombre");
+
+
+botonHombre.addEventListener("click", (e) => {
+        window.location.href = ' ./pages/hombres.html '
+}
+)
  */

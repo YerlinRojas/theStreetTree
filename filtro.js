@@ -1,17 +1,92 @@
+const productFiltrado = JSON.parse(localStorage.getItem('productoBoton'))
+console.log(productFiltrado)
+
+
+const productos = [
+
+    {
+        id: "card1",
+        titulo: "campera amarilla",
+        imagen: "./assets/images/card1_amarillo.png",
+        categoria:{
+            nombre: "kids",
+            id: "kids",
+        },
+        precio: 1000,
+
+    },
+
+    {
+        id: "card2",
+        titulo: "botas hombre",
+        imagen: "./assets/images/card2_botashombre.png",
+        categoria:{
+            nombre: "hombre",
+            id: "hombre",
+        },
+        precio: 1500,
+
+    },
+
+    {
+        id: "card3",
+        titulo: "conjunto deportivo",
+        imagen: "./assets/images/card3_Cdeporhombre.png",
+        categoria:{
+            nombre: "hombre",
+            id: "hombre",
+        },
+        precio: 2000,
+
+    },
+
+    {
+        id: "card4",
+        titulo: "conjuto deportivo",
+        imagen: "./../assets/images/card4_mujerdeportivoconunto.png",
+        categoria:{
+            nombre: "mujer",
+            id: "mujer",
+        },
+        precio: 2000,
+
+    },
+
+
+]
+
+const contenedorProductos = document.querySelector("#contenedorProductos")
 const botonesCategorias = document.querySelectorAll(".boton-categoria"); 
 
-botonesCategorias.forEach(boton => {
-    boton.addEventListener("click", (e) =>{
+function cargarProductos (productosElegidos) {
 
-        botonesCategorias.forEach(boton => boton.classList.remove("active"));
-        e.currentTarget.classList.add("active");
+    contenedorProductos.innerHTML="";
 
-        const productoBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id)
-        cargarProductos(productoBoton);
+    productosElegidos.forEach(producto => {
+        const div = document.createElement("div");
+         div.classList.add("producto");
+         div.innerHTML = 
+         `
+         <div class="card-bodyy">
+         <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+         <div class="producto-detalle">
+           <h5 class="producto-titulo">${producto.titulo}</h5>
+           <p class="producto-precio">${producto.precio}</p>
+           <button class="producto-agregar" id="${producto.id}">Agregar</button>
+         </div>
+         </div>
+         `
+         contenedorProductos.append(div);
+ 
     }
+
     )
+
 }
-    )
+
+cargarProductos(productFiltrado)
 
 
-console.log(productoBoton)
+
+
+
