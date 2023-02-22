@@ -41,7 +41,7 @@ const cuil = parseInt (prompt("Ingresar CUIL"))
 const datosNvar=" DNI "+dni+" Cumpleaños "+ birthday+" CUIL "+ cuil
 
 console.log(datosVar+" "+datosNvar)   */
- 
+
 /* Bucle */
 /* const user= "admin"
 const pass= "1234"
@@ -168,7 +168,7 @@ console.log(stock)
  */
 
 /* carrito de compras vacio*/
- /* const carrito= []
+/* const carrito= []
  */
 
 /* filter - busca en stock*/
@@ -221,80 +221,72 @@ console.log(precioDesc)*/
 /* const importeTotal = precioDesc.reduce ((acumulador, precioDesc) => acumulador+ precioDesc.precio, 0);
 console.log(importeTotal) */
 
-
-
 /********TERCERA ENTREGA****************/
 
 const productos = [
-
-    {
-        id: "card1",
-        titulo: "campera amarilla",
-        imagen: "./assets/images/card1_amarillo.png",
-        categoria:{
-            nombre: "kids",
-            id: "kids",
-        },
-        precio: 1000,
-
+  {
+    id: "card1",
+    titulo: "campera amarilla",
+    imagen: "./assets/images/card1_amarillo.png",
+    categoria: {
+      nombre: "kids",
+      id: "kids",
     },
+    precio: 1000,
+  },
 
-    {
-        id: "card2",
-        titulo: "botas hombre",
-        imagen: "./assets/images/card2_botashombre.png",
-        categoria:{
-            nombre: "hombre",
-            id: "hombre",
-        },
-        precio: 1500,
-
+  {
+    id: "card2",
+    titulo: "botas hombre",
+    imagen: "./assets/images/card2_botashombre.png",
+    categoria: {
+      nombre: "hombre",
+      id: "hombre",
     },
+    precio: 1500,
+  },
 
-    {
-        id: "card3",
-        titulo: "conjunto deportivo",
-        imagen: "./assets/images/card3_Cdeporhombre.png",
-        categoria:{
-            nombre: "hombre",
-            id: "hombre",
-        },
-        precio: 2000,
-
+  {
+    id: "card3",
+    titulo: "conjunto deportivo",
+    imagen: "./assets/images/card3_Cdeporhombre.png",
+    categoria: {
+      nombre: "hombre",
+      id: "hombre",
     },
+    precio: 2000,
+  },
 
-    {
-        id: "card4",
-        titulo: "conjuto deportivo",
-        imagen: "./assets/images/card4_mujerdeportivoconunto.png",
-        categoria:{
-            nombre: "mujer",
-            id: "mujer",
-        },
-        precio: 2000,
-
+  {
+    id: "card4",
+    titulo: "conjuto deportivo",
+    imagen: "./assets/images/card4_mujerdeportivoconunto.png",
+    categoria: {
+      nombre: "mujer",
+      id: "mujer",
     },
+    precio: 2000,
+  },
+];
 
+/* Botones */
 
-
-]
-
-const contenedorProductos = document.querySelector("#contenedorProductos")
-const botonesCategorias = document.querySelectorAll(".boton-categoria"); 
+const contenedorProductos = document.querySelector("#contenedorProductos");
+const botonesCategorias = document.querySelectorAll(".boton-categoria");
+let botonAgregar = document.querySelectorAll(".producto-agregar");
+let cantidadEnCarrito = document.getElementById("numeroCarro")
 
 
 
 /* funcion para productos detalle */
 
-function cargarProductos (productosElegidos) {
+function cargarProductos(productosElegidos) {
+  contenedorProductos.innerHTML = "";
 
-    contenedorProductos.innerHTML="";
-
-    productosElegidos.forEach(producto => {
-        const div = document.createElement("div");
-         div.classList.add("producto");
-         div.innerHTML = 
-         `
+  productosElegidos.forEach((producto) => {
+    const div = document.createElement("div");
+    div.classList.add("producto");
+    div.innerHTML = `
          <div class="card-bodyy">
          <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
          <div class="producto-detalle">
@@ -303,51 +295,120 @@ function cargarProductos (productosElegidos) {
            <button class="producto-agregar" id="${producto.id}">Agregar</button>
          </div>
          </div>
-         `
-         contenedorProductos.append(div);
- 
-    }
-
-    )
+         `;
+    contenedorProductos.append(div);
+  });
+  botenesAgregar ()
+  
 
 }
 
-cargarProductos(productos)
-
+cargarProductos(productos);
 
 /* funcion filtrar */
-botonesCategorias.forEach(boton => {
-    boton.addEventListener("click", (e) =>{
+botonesCategorias.forEach((boton) => {
+  boton.addEventListener("click", (e) => {
+    botonesCategorias.forEach((boton) => boton.classList.remove("active"));
+    e.currentTarget.classList.add("active");
 
-        botonesCategorias.forEach(boton => boton.classList.remove("active"));
-        e.currentTarget.classList.add("active");
-        
-        const productoBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id)
-        cargarProductos(productoBoton);
-        localStorage.setItem('productoBoton', JSON.stringify(productoBoton))
-        window.location.href = ' ./pages/mujeres.html '
+    const productoBoton = productos.filter(
+      (producto) => producto.categoria.id === e.currentTarget.id
+    );
+    cargarProductos(productoBoton);
+    localStorage.setItem("productoBoton", JSON.stringify(productoBoton));
+    window.location.href = " ./pages/mujeres.html ";
+  });
+});
 
-    }
-    )
+
+/* Botones Add */
+function botenesAgregar (){
+    botonAgregar = document.querySelectorAll(".producto-agregar");
+    botonAgregar.forEach((boton)=>{
+        boton.addEventListener("click", agregarAlcarrito)
+    })
+    
 }
-    )
 
+/* Function add to car */
+
+let carrito;
+
+const productosEnCarritoLS = JSON.parse(localStorage.getItem("productosEnCarrito"))
+if(productosEnCarritoLS){
+
+  carrito=productosEnCarritoLS
+  actualizarCarro ()
+}else{
+  carrito= []
+}
+
+
+function agregarAlcarrito (e){
+    const idBoton = e.currentTarget.id;
+    const productoAgregado = productos.find (producto => producto.id === idBoton)
+    
+    if(carrito.some(producto=> producto.id === idBoton)){
+        const index = carrito.findIndex (producto => producto.id === idBoton)
+        carrito[index].cantidad++
+    }else{
+        productoAgregado.cantidad = 1
+        carrito.push(productoAgregado)
+    }
+   
+    actualizarCarro ()
+    localStorage.setItem("productosEnCarrito", JSON.stringify(carrito));
+    alert()
     
 
-
-/* const botonMujer = document.querySelector(".boton-mujer");
-
-
-botonMujer.addEventListener("click", (e) => {
-        window.location.href = ' ./pages/mujeres.html '
 }
-)
 
-const botonHombre = document.querySelector(".boton-hombre");
+/* Actualiza numero de cosas en carrito */
 
+function actualizarCarro (){
+    let nuevoNumerito = carrito.reduce((acc, producto)=> acc + producto.cantidad, 0)
+    cantidadEnCarrito.innerText = nuevoNumerito;
 
-botonHombre.addEventListener("click", (e) => {
-        window.location.href = ' ./pages/hombres.html '
+}   
+
+function alert(){
+  Toastify({
+    text: "Producto Agregado",
+    duration: 1500,
+    destination: "https://github.com/apvarun/toastify-js",
+    close: true,
+    gravity: "bottom", 
+    position: "right", 
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+    onClick: function(){} 
+  }).showToast();
 }
-)
- */
+ 
+
+
+
+/* fetch  */
+fetch('https://fakestoreapi.com/products?limit=2')
+.then(res=>res.json())
+
+.then(productosElegidos =>{
+productosElegidos.forEach(producto=>{
+const div = document.createElement(`div`)
+div.innerHTML=`
+<div class="card-bodyy">
+<img class="producto-imagen" src="${producto.image}" alt="${producto.description}">
+<div class="producto-detalle">
+<h5 class="producto-titulo">${producto.title}</h5>
+<p class="producto-precio">${producto.price}</p>
+<button class="producto-agregar" id="${producto.id}">Agregar</button>
+</div>
+</div>
+
+`
+contenedorProductos.append(div);  
+
+});
+botenesAgregar ()
+})
