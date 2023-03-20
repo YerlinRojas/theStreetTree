@@ -374,7 +374,7 @@ function actualizarCarro (){
 function alert(){
   Toastify({
     text: "Producto Agregado",
-    duration: 1500,
+    duration: 1000,
     destination: "https://github.com/apvarun/toastify-js",
     close: true,
     gravity: "bottom", 
@@ -385,30 +385,3 @@ function alert(){
     onClick: function(){} 
   }).showToast();
 }
- 
-
-
-
-/* fetch  */
-fetch('https://fakestoreapi.com/products?limit=2')
-.then(res=>res.json())
-
-.then(productosElegidos =>{
-productosElegidos.forEach(producto=>{
-const div = document.createElement(`div`)
-div.innerHTML=`
-<div class="card-bodyy">
-<img class="producto-imagen" src="${producto.image}" alt="${producto.description}">
-<div class="producto-detalle">
-<h5 class="producto-titulo">${producto.title}</h5>
-<p class="producto-precio">${producto.price}</p>
-<button class="producto-agregar" id="${producto.id}">Agregar</button>
-</div>
-</div>
-
-`
-contenedorProductos.append(div);  
-
-});
-botenesAgregar ()
-})
