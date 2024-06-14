@@ -1,81 +1,72 @@
 /* cards */
 /* Estilo para las tarjetas */
-.producto {
-  width: 100%; /* Ancho total de la tarjeta */
-  max-width: 300px; /* Ancho máximo de la tarjeta */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 20px; /* Espacio entre tarjetas */
-}
+  .gridCard {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-/* Estilo para la imagen del producto */
-.producto-imagen {
-  width: 100%; /* Ancho total de la imagen */
-  height: 200px; /* Altura fija para la imagen */
-  object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
+    .producto {
+      width: 100%;
+      max-width: 300px;
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-/* Estilo para el detalle del producto */
-.producto-detalle {
-  padding: 10px;
-}
+    .producto:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
-/* Estilo para el título del producto */
-.producto-titulo {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
+    .producto-imagen {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #e0e0e0;
+    }
 
-/* Estilo para el precio del producto */
-.producto-precio {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 10px;
-}
+    .producto-detalle {
+      padding: 15px;
+      text-align: center;
+    }
 
-/* Estilo para el botón "Agregar al carrito" */
-.producto-agregar {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .producto-titulo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
 
+    .producto-precio {
+      font-size: 16px;
+      color: #27ae60;
+      margin-bottom: 15px;
+    }
 
-/*.producto-imagen{
-    height: 200px;
-    width: 200px;
-}
+    .producto-agregar {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 
-.card-bodyy{
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 5px;
-    width: 250px;
-    height: 300px;
-    box-sizing: content-box;
-    font-size: smaller;    
-}
+    .producto-agregar:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
 
-.producto-agregar {
-    box-sizing: unset;
-    background-color: rgb(222, 224, 224);
-    border-radius: 2px;
-    font-size: medium;
-    font-weight: bold;
-}
-/* <div class="producto-detalle">
-  <h5 class="producto-titulo">${producto.titulo}</h5>
-  <p class="producto-precio">${producto.precio}</p>
-  <button class="producto-agregar" id="${producto.id}">Agregar</button>
-</div>
- */
-
-
+    .producto-agregar:active {
+      background-color: #004080;
+      transform: scale(1);
+    }
 
 
 .gridVenta{
