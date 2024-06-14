@@ -52,7 +52,7 @@ const productFiltrado = JSON.parse(localStorage.getItem('productoBoton'));
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-          <div class="card-bodyy">
+          <div>
             <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
             <div class="producto-detalle">
               <h5 class="producto-titulo">${producto.titulo}</h5>
@@ -74,7 +74,7 @@ const productFiltrado = JSON.parse(localStorage.getItem('productoBoton'));
           const div = document.createElement('div');
           div.classList.add('producto');
           div.innerHTML = `
-            <div class="card-bodyy">
+            <div class="gridCard">
               <img class="producto-imagen" src="${producto.image}" alt="${producto.title}">
               <div class="producto-detalle">
                 <h5 class="producto-titulo">${producto.title}</h5>
