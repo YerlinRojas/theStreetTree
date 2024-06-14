@@ -1,7 +1,52 @@
 /* cards */
+/* Estilo para las tarjetas */
+.producto {
+  width: 100%; /* Ancho total de la tarjeta */
+  max-width: 300px; /* Ancho máximo de la tarjeta */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Espacio entre tarjetas */
+}
+
+/* Estilo para la imagen del producto */
+.producto-imagen {
+  width: 100%; /* Ancho total de la imagen */
+  height: 200px; /* Altura fija para la imagen */
+  object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Estilo para el detalle del producto */
+.producto-detalle {
+  padding: 10px;
+}
+
+/* Estilo para el título del producto */
+.producto-titulo {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Estilo para el precio del producto */
+.producto-precio {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* Estilo para el botón "Agregar al carrito" */
+.producto-agregar {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 
-.producto-imagen{
+/*.producto-imagen{
     height: 200px;
     width: 200px;
 }
