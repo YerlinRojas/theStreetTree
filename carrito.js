@@ -69,13 +69,13 @@ function cargarProductos(productosElegidos) {
     const div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
-         <div class="card-bodyy">
-         <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
-         <div class="producto-detalle">
-           <h5 class="producto-titulo">${producto.titulo}</h5>
-           <p class="producto-precio">Precio ${producto.precio}</p>
+         <div class="card">
+         <img  src="${producto.imagen}" alt="${producto.titulo}">
+         <div class="card-body">
+           <h5 class="card-title">${producto.titulo}</h5>
+           <p class="card-text">Precio ${producto.precio}</p>
            <p class="producto-cantidad">Cantidad ${producto.cantidad}</p>
-           <button class="producto-eliminar" id="${producto.id}">eliminar</button>
+           <button class="btn" id="${producto.id}">Eliminar</button>
          </div>
          </div>
          `;
