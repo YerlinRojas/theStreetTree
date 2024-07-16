@@ -42,7 +42,7 @@ const productos = [
           <div class="card-body">
             <h5 class="car-title">${producto.titulo}</h5>
             <p class="card-text">${producto.precio}</p>
-            <button class="btn" id="${producto.id}">Agregar</button>
+            <button class="producto-agregar btn" id="${producto.id}">Agregar</button>
           </div>
         </div>
       `;
@@ -138,7 +138,7 @@ const productos = [
             <div class="card-body">
               <h5 class="producto-titulo">${producto.title}</h5>
               <p class="producto-precio">$${producto.price}</p>
-              <button class="btn" id="${producto.id}">Agregar</button>
+              <button class="producto-agregar btn" id="${producto.id}">Agregar</button>
             </div>
           </div>
         `;

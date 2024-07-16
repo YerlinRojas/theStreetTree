@@ -326,3 +326,18 @@ li {
     background-color: #0056b3;
   }
   
+
+  .btn2 {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 12px;
+    background-color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
