@@ -20,16 +20,15 @@ Bienvenido a **theStreetTree**, un proyecto de reciclaje de ropa que busca fomen
 ## Instalación y Configuración
 
 1. Clona el repositorio:
-
    ```bash
-   git clone https://github.com/theStreetTree/theStreetTree.github.io.git
+   git clone https://github.com/YerlinRojas/theStreetTree.git
    
 2. Navega al directorio del proyecto:
-
-   cd theStreetTree.github.io
+   ```bash
+   cd theStreetTree
 
 3. Instala las dependencias:
-
+   ```bash
    npm install
 
 
